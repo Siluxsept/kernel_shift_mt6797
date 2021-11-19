@@ -635,9 +635,9 @@ if (GET_BITS_VAL_OCP(0:0, Temp) == 1) {
 		*Leakage = 127999;
 
 
-if (ocp_opt.ocp_cluster2_enable == 0)
+	if (ocp_opt.ocp_cluster2_enable == 0)
 	goto Label;
-if ((cpu_online(8) == 0) && (cpu_online(9) == 0))
+	if ((cpu_online(8) == 0) && (cpu_online(9) == 0))
 	goto Label;
 
 	/* CapTotAct:  Q8.12 -> integer  */
@@ -758,7 +758,7 @@ int BigOCPMAFAct(unsigned int *CapMAFAct)
 
 if (ocp_read_field(OCPAPBSTATUS01, 0:0) == 1)
 	*CapMAFAct = (ocp_read_field(OCPAPBSTATUS03, 18:0) * 1000) >> 12; /* mA*/
-else
+	else
 	*CapMAFAct = 0x0;
 
 	if (HW_API_DEBUG_ON)
@@ -2820,7 +2820,7 @@ seq_printf(m, "CPU3RawLkg   = %d\n", ocp_status[0].CPU3RawLkg);
 if (Reg_Debug_on) {
 	int i;
 
-	for (i = 0; i < 524 ; i += 4)
+		for (i = 0; i < 524 ; i += 4)
 		seq_printf(m, "Addr: 0x%x = %x\n", (MP0_OCP_IRQSTATE + i), ocp_read(MP0_OCP_IRQSTATE + i));
 
 		seq_printf(m, "Addr: 0x102217FC = %x\n", ocp_read(MP0_OCP_GENERAL_CTRL));
@@ -2969,7 +2969,7 @@ seq_printf(m, "CPU3RawLkg   = %d\n", ocp_status[1].CPU3RawLkg);
 if (Reg_Debug_on) {
 	int i;
 
-	for (i = 0; i < 524; i += 4)
+		for (i = 0; i < 524; i += 4)
 		seq_printf(m, "Addr: 0x%x = %x\n", (MP1_OCP_IRQSTATE + i), ocp_read(MP1_OCP_IRQSTATE + i));
 
 		seq_printf(m, "Addr: 0x102237FC = %x\n", ocp_read(MP1_OCP_GENERAL_CTRL));

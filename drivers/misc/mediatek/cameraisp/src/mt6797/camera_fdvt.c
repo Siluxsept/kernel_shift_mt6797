@@ -880,7 +880,7 @@ static long compat_FD_ioctl(struct file *file, unsigned int cmd, unsigned long a
 			return -EFAULT;
 
 		err = compat_FD_get_register_data(data32, data);
-		if (err)
+			if (err)
 			return err;
 			ret = file->f_op->unlocked_ioctl(file, FDVT_IOC_G_WAITIRQ, (unsigned long)data);
 		err = compat_FD_put_register_data(data32, data);
